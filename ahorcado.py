@@ -1,6 +1,6 @@
 import os
 import random
-
+import copy
 lifes = ['''
 
     +----+
@@ -108,15 +108,24 @@ while True:
     random_keys = random.choice(list(box.keys()))  
     respuesta = box[random_keys]
     
-    
-    
-    array = []
+    list1 = []
+    list2 = []
     
     for char in respuesta:
-        array.append(char)
-    veces = len(array) - 1
+        list1.append(char)
+        list2.append(char)
+        
+    veces = len(list1) - 1
+    
+    for i in range(len(list2)):
+        list2[i] = '-'
+        
+    
+        
+    
     print(random_keys)
-    print(array)
+    print(list1)
+    print(list2)
     print(lifes[0])
     x = 0
     
@@ -124,20 +133,22 @@ while True:
         print()
         var = str(input('digite una letra: '))
         var.lower()
-        for i in array:
+        for i in list1:
             if i == var:
                 pass
             else:
                 x += 1
                 run('cls')
                 print(random_keys)
-                print(array)
+                print(list1)
+                print(list2)
                 print(lifes[x])
                 break
         if veces == x:
             run('cls')
             print(lifes[veces])
             break
+        
         
         
         
