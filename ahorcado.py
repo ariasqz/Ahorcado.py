@@ -97,7 +97,9 @@ while True:
         Tecla enter para continuar o exit para salir..      
 
     ''')
+    
     option =str(input(": "))
+    
     if option == 'exit':
         break
     else:
@@ -118,36 +120,40 @@ while True:
     veces = len(list1) - 1
     
     for i in range(len(list2)):
-        list2[i] = '-'
-        
+        list2[i] = '-'    
     
-        
+    x = 0 
+    y = 0
     
-    print(random_keys)
-    print(list1)
-    print(list2)
-    print(lifes[0])
-    x = 0
+    def imprimir():
+        print()
+        print(random_keys)
+        print(list2)
+        print(lifes[y])
     
-    while True:
+    imprimir()
+    
+    while x < 7:
+        if list1 == list2:
+            print(win)
+            break
+                             
         print()
         var = str(input('digite una letra: '))
         var.lower()
-        for i in list1:
-            if i == var:
-                pass
-            else:
-                x += 1
-                run('cls')
-                print(random_keys)
-                print(list1)
-                print(list2)
-                print(lifes[x])
-                break
-        if veces == x:
+        
+        if var in list1:
+            for i in range(len(list2)):
+                if list1[i] == var:
+                    list2[i] = var
+                    run('cls')
+                    imprimir()
+                    
+        else:
+            x += 1
+            y += 1
             run('cls')
-            print(lifes[veces])
-            break
+            imprimir()
         
         
         
